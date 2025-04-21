@@ -21,6 +21,10 @@
     }
   }
 
+  input[type=checkbox] {
+    appearance: auto;
+  }
+
   input[type=submit],
   button {
     @include heading_h6;

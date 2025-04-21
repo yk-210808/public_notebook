@@ -1,0 +1,17 @@
+{
+  "_sprite.svg": {
+    "file": "img/svg/sprite.svg",
+    "src": "_sprite.svg"
+  },
+  "js/main.js": {
+    "file": "js/main.js",
+    "name": "main",
+    "src": "js/main.js",
+    "isEntry": true
+  },
+  "scss/style.scss": {
+    "file": "css/style.css",
+    "src": "scss/style.scss",
+    "isEntry": true
+  }
+}
