@@ -1,0 +1,63 @@
+@use '../mixin/mixin'as *;
+@use '../setting/setting'as *;
+
+.c-side-items {
+  max-width: 360px;
+  width: 100%;
+
+  @include max(830) {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 40px 20px;
+  }
+
+  @include min(831) {
+    .side-cat {
+      margin-top: 56px;
+    }
+  
+    .side-update,
+    .side-tag {
+      margin-top: 80px;
+    }
+  }
+
+  .update-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
+    margin-top: 40px;
+
+    @include sp {
+      grid-gap: 12px;
+      margin-top: 20px;
+    }
+
+    >li {
+      text-align: center;
+      background-color: $primary_lightGreen03;
+      border-radius: 10px;
+      padding: 21px 10px;
+
+      @include sp {
+        padding: 10px;
+      }
+    }
+
+    .number {
+      @include heading_h2;
+      color: $primary_green;
+    }
+
+    .txt {
+      @include heading_h6;
+      margin-top: 6px;
+      text-transform: capitalize;
+
+      @include sp {
+        margin-top: 3px;
+      }
+    }
+  }
+}

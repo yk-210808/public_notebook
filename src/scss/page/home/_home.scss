@@ -1,0 +1,137 @@
+@use '../../mixin/mixin'as *;
+@use '../../setting/setting'as *;
+
+.p-home {
+  .mv-block {
+    background-color: $primary_lightGreen03;
+
+    .main-items {
+      width: 100%;
+    }
+
+    .sub-items {
+      width: 100%;
+
+      @include min(1171) {
+        max-width: 360px;
+      }
+    }
+
+    .inner-block {
+      display: flex;
+      gap: 50px;
+      justify-content: space-between;
+      padding-top: 80px;
+      padding-bottom: 85px;
+
+      @include max(1170) {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      @include sp {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    }
+  }
+
+  .splide-scroll-vertical {
+    @include pc {
+      padding-right: 30px;
+      margin-top: 36px;
+
+      .splide__pagination {
+        right: 0;
+
+        >li {
+          height: calc(100% / 3);
+        }
+      }
+
+      .splide__pagination__page {
+        width: 2px;
+        height: 100%;
+        transform: none;
+        border-radius: 0;
+        background-color: #C4C4C4;
+        margin: 0;
+
+        &.is-active {
+          width: 3px;
+          background-color: $primary_green;
+          border-radius: 3px;
+        }
+      }
+    }
+
+    @include sp {
+      margin-top: 30px;
+      padding-bottom: 45px;
+
+      .splide__pagination__page {
+        width: 10px;
+        height: 6px;
+        background-color: #C4D1D1;
+        border-radius: 3px;
+        transform: none;
+
+        &.is-active {
+          background-color: $primary_green;
+          width: 25px;
+        }
+      }
+    }
+
+
+  }
+
+  .splide-scroll-side {
+    margin-top: 55px;
+    padding-bottom: 60px;
+
+    @include sp {
+      margin-top: 30px;
+      padding-bottom: 45px;
+    }
+
+    .splide__pagination__page {
+      width: 10px;
+      height: 6px;
+      background-color: #C4D1D1;
+      border-radius: 3px;
+      transform: none;
+
+      &.is-active {
+        background-color: $primary_green;
+        width: 25px;
+      }
+    }
+  }
+}
+
+.post-block {
+  .inner-block {
+    display: flex;
+    gap: 80px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+
+    @include max(830) {
+      flex-direction: column;
+    }
+
+    @include sp {
+      padding-top: 40px;
+      padding-bottom: 50px;
+      gap: 60px;
+    }
+  }
+
+  .c-btn {
+    min-width: 200px;
+    text-align: center;
+    margin: 80px auto 0;
+  }
+}

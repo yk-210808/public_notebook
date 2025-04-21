@@ -1,0 +1,65 @@
+@use '../../mixin/mixin'as *;
+@use '../../setting/setting'as *;
+
+.p-privacy {
+  .privacy-policy {
+
+    p {
+      @include paragraph;
+    }
+
+    h3 {
+      @include heading_h3;
+      padding-left: 1.5em;
+      position: relative;
+      margin: 20px 0;
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: 1em;
+        height: 3px;
+        background-color: $primary_green;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    ol {
+      counter-reset: ol;
+      margin-top: 0.5em;
+
+      >li {
+        @include paragraph;
+        counter-increment: ol;
+        padding-left: 1em;
+        text-indent: -1em;
+
+        &::before {
+          content: ""counter(ol) ".";
+        }
+
+        &+li {
+          margin-top: 0.5em;
+        }
+      }
+    }
+
+    >ol {
+      margin: 15px 0;
+    }
+
+    h3,
+    p,
+    ol li {
+      color: #555;
+    }
+
+
+    .tR {
+      text-align: right;
+    }
+  }
+}

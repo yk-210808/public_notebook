@@ -1,0 +1,33 @@
+@use '../../mixin/mixin'as *;
+@use '../../setting/setting'as *;
+
+.p-faq {
+  .c-ttl-area {
+    margin-bottom: 40px;
+
+    @include sp {
+      margin-bottom: 20px;
+    }
+  }
+
+  .cta-area {
+    text-align: center;
+    margin-top: 80px;
+
+    @include sp {
+      margin-top: 40px;
+    }
+
+    .ttl {
+      @include heading_h3;
+    }
+  }
+
+  .c-btn01 {
+    margin: 32px auto 0;
+
+    @include sp {
+      margin-top: 16px;
+    }
+  }
+}

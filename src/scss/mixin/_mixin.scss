@@ -1,0 +1,129 @@
+@use '../setting/setting' as s;
+// placeholder
+@mixin placeholder($color) {
+  ::-webkit-input-placeholder {
+    color: $color;
+  }
+  :-ms-input-placeholder {
+    color: $color;
+  }
+  ::-ms-input-placeholder {
+    color: $color;
+  }
+  ::placeholder {
+    color: $color;
+  }
+}
+
+// font-face設定
+@mixin fontFace($name:test, $weight:normal, $path:test ,$type:otf ,$type_text:opentype) {
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    src:
+    url(#{$path}.woff) format('woff'),
+    url(#{$path}.#{$type}) format('#{$type_text}');
+  }
+}
+
+// メディアクエリ
+@mixin pc {
+  @media only screen and (min-width: #{s.$bp-pc}) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media only screen and (max-width: #{s.$bp-sp}) {
+    @content;
+  }
+}
+
+@mixin min($width) {
+  @media only screen and (min-width: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin max($width) {
+  @media only screen and (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin minmax($min_width, $max_width) {
+  @media only screen and (min-width: #{$min_width}px) and (max-width: #{$max_width}px) {
+    @content;
+  }
+}
+
+// settingで指定した幅を基準にvwを返す
+@function vw($size, $viewport: s.$vw_standard_width) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+// font size
+@mixin heading_h1 {
+  font-size: 27px;
+  font-weight: 600;
+  color: #222;
+  text-transform: capitalize;
+  line-height: 1.4;
+  @include sp {
+    font-size: 24px;
+  }
+}
+@mixin heading_h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  text-transform: capitalize;
+  @include sp {
+    font-size: 22px;
+  }
+}
+@mixin heading_h3 {
+  font-size: 21px;
+  font-weight: 600;
+  color: #222;
+  text-transform: capitalize;
+  @include sp {
+    font-size: 20px;
+  }
+}
+@mixin heading_h4 {
+  font-size: 19px;
+  font-weight: 600;
+  color: #222;
+  text-transform: capitalize;
+  @include sp {
+    font-size: 19px;
+  }
+}
+@mixin heading_h5 {
+  font-size: 17px;
+  font-weight: 500;
+  color: #222;
+  text-transform: capitalize;
+  @include sp {
+    font-size: 17px;
+  }
+}
+@mixin heading_h6 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+  text-transform: capitalize;
+  @include sp {
+    font-size: 15px;
+  }
+}
+@mixin paragraph {
+  font-size: 15px;
+  color: #999;
+  line-height: 1.5;
+  @include sp {
+    font-size: 14px;
+  }
+}

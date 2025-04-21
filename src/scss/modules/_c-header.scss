@@ -1,0 +1,277 @@
+@use '../mixin/mixin'as *;
+@use '../setting/setting'as *;
+
+/* --------------------------------
+c-header
+----------------------------------- */
+.c-header {
+  background-color: $primary_lightGreen;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 555;
+  width: 100%;
+  transition: box-shadow $transition01;
+
+  &.is-shadow {
+    box-shadow: 0px 1px 19px -13px #000000;
+
+    @include pc {
+      .sub-menu {
+        box-shadow: 0px 2px 11px -2px #0000004a;
+      }
+    }
+  }
+
+  .inner-block {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    @include sp {
+      padding-right: 0;
+      position: relative;
+    }
+  }
+
+  .header-logo {
+    a {
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      @include pc {
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      @include sp {
+        padding: 5px 0;
+        max-width: 110px;
+      }
+    }
+  }
+
+  .link-list {
+    display: flex;
+    align-items: center;
+
+    @include sp {
+      position: absolute;
+      opacity: 0;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      flex-direction: column;
+      background-color: $primary_lightGreen;
+      height: 100svh;
+      pointer-events: none;
+      transition: opacity $transition01;
+
+      &.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    >li {
+      position: relative;
+      text-transform: capitalize;
+
+      @include sp {
+        width: 100%;
+      }
+    }
+
+    .trigger {
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      padding: 23px 20px;
+
+      @include pc {
+        &:hover {
+          color: $primary_green;
+
+          .inn {
+            &::after {
+              border-color: $primary_green;
+            }
+          }
+
+          &.icon {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .inn {
+        padding-right: 15px;
+        position: relative;
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: 7px;
+          height: 7px;
+          border-bottom: 2px solid #333;
+          border-right: 2px solid #333;
+          transform: rotate(45deg);
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          transition: all $transition01;
+        }
+      }
+
+      @include pc {
+        @include max(800) {
+          font-size: 12px;
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+      }
+
+      @include sp {
+        font-size: 14px;
+        width: 100%;
+        padding: 15px;
+        border-bottom: 1px solid #33333360;
+      }
+
+      .icon-sub-txt {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .sub-menu {
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 112%;
+    margin: auto;
+    background-color: $primary_lightGreen;
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition01;
+
+    @include pc {
+      display: block !important;
+
+      &.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    @include sp {
+      position: static;
+      opacity: 1;
+      pointer-events: all;
+      text-align: left;
+      width: 100%;
+      display: none;
+    }
+
+    >li {
+      &+li {
+        border-top: 1px solid #33333360;
+      }
+
+      a {
+        display: block;
+        padding: 10px 15px;
+        font-size: 14px;
+
+        @include pc {
+          &:hover {
+            color: $primary_green;
+          }
+        }
+
+        @include sp {
+          padding-left: 40px;
+          padding-right: 30px;
+          position: relative;
+
+          &::after {
+            position: absolute;
+            content: '';
+            width: 10px;
+            height: 1px;
+            background-color: #333;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
+        }
+      }
+
+      @include sp {
+        &:last-of-type {
+          border-bottom: 1px solid #33333360;
+        }
+      }
+    }
+  }
+
+  .menu-trigger {
+    display: none;
+    width: 65px;
+    height: 45px;
+    position: relative;
+
+    @include sp {
+      display: block;
+    }
+
+    .inn {
+      width: 25px;
+      height: 2px;
+      display: block;
+      background-color: $primary_green;
+      position: absolute;
+      right: 0;
+      left: 0;
+      margin: auto;
+      transition: all $transition01;
+
+      &:first-of-type {
+        top: 13px;
+      }
+
+      &:nth-of-type(2) {
+        top: 0;
+        bottom: 0;
+      }
+
+      &:last-of-type {
+        bottom: 13px;
+      }
+    }
+
+    &.is-active {
+      .inn {
+        &:first-of-type {
+          transform: translate(0, 8.5px) rotate(45deg);
+        }
+
+        &:nth-of-type(2) {
+          opacity: 0;
+        }
+
+        &:last-of-type {
+          transform: translate(0, -8.5px) rotate(-45deg);
+        }
+      }
+    }
+  }
+}

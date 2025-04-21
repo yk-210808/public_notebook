@@ -1,0 +1,7 @@
+{
+	"url": "http://localhost:8888/",
+	"inputs": {
+		"main": "js/main.js",
+		"style": "scss/style.scss"
+	}
+}

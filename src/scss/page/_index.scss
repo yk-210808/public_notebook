@@ -1,0 +1,9 @@
+/* -----------------------------------------------
+* Page エントリーポイント
+-------------------------------------------------- */
+@use './home/home';
+@use './blogs/blogs';
+@use './contact/contact';
+@use './faq/faq';
+@use './privacy/privacy';
+@use './search/search';

@@ -1,0 +1,161 @@
+@use '../mixin/mixin'as *;
+@use '../setting/setting'as *;
+
+.c-footer {
+  background-color: $primary_lightGreen03;
+
+  .inner-block {
+    padding-top: 103px;
+
+    @include sp {
+      padding-top: 50px;
+    }
+  }
+
+  .logo-area {
+    max-width: 240px;
+
+    .description {
+      @include heading_h6;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.5;
+      margin-top: 24px;
+    }
+  }
+
+  .inn {
+    display: flex;
+    gap: 110px;
+
+    @include max(1100) {
+      gap: 50px;
+    }
+
+    @include max(710) {
+      flex-direction: column;
+    }
+  }
+
+  .main-items {
+    display: flex;
+    width: 100%;
+
+    @include minmax(711, 980) {
+      justify-content: flex-end
+    }
+
+    .ttl {
+      @include heading_h5;
+      font-weight: 600;
+    }
+
+    .list {
+      margin-top: 10px;
+
+      a {
+        @include heading_h6;
+        font-weight: 400;
+        color: #555;
+        padding: 3px 0;
+        display: inline-block;
+
+        @include pc {
+          &:hover {
+            color: $primary_green;
+          }
+        }
+      }
+    }
+  }
+
+  .link-list {
+    max-width: 220px;
+    width: 100%;
+    padding-right: 15px;
+
+    @include max(980) {
+      display: none;
+    }
+  }
+
+  .subsc-sns-area {
+    @include min(711) {
+      margin-left: 48px;
+    }
+  }
+
+  .subsc-form {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+
+    @include sp {
+      margin-top: 12px;
+    }
+  }
+
+  .input {
+    background-color: $primary_lightGreen02;
+    padding: 13px 22px;
+    border-radius: 6px 0 0 6px;
+    max-width: 245px;
+    width: 100%;
+    min-width: 180px;
+
+    &:focus {
+      outline: 2px solid $primary_green;
+      outline-offset: -2px;
+    }
+
+    &::placeholder {
+      color: #777777;
+    }
+  }
+
+  .btn {
+    @include heading_h6;
+    font-weight: 400;
+    background-color: $primary_green;
+    color: #fff;
+    padding: 12px 22px;
+    max-width: 145px;
+    width: 100%;
+    border-radius: 0 6px 6px 0;
+    outline: 2px solid $primary_green;
+    outline-offset: -2px;
+
+    @include pc {
+      &:hover {
+        background-color: #fff;
+        color: $primary_green;
+      }
+    }
+  }
+
+  .subsc-box {
+    &+.sns-box {
+      margin-top: 42px;
+  
+      @include sp {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .copyright {
+    font-size: 12px;
+    font-weight: 400;
+    color: #555;
+    text-align: center;
+    line-height: 1.5;
+    padding: 24px 0 28px;
+    border-top: 1px solid #D1E7E5;
+    margin-top: 68px;
+
+    @include sp {
+      padding: 12px 0 16px;
+      margin-top: 40px;
+    }
+  }
+}

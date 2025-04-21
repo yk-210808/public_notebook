@@ -1,0 +1,51 @@
+@use '../mixin/mixin' as *;
+@use '../setting/setting' as *;
+
+.c-btn01 {
+  @include heading_h6;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 10.5px 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  outline: 2px solid $primary_green;
+  outline-offset: -2px;
+  transition: $transition01;
+  background-color: #fff;
+  color: $primary_green;
+  display: block;
+  width: fit-content;
+  
+
+
+  &.arrow {
+    padding-right: 48px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 10px;
+      height: 8px;
+      background: url(../img/common/icon_arrow.svg) no-repeat center / 100%;
+      top: 0;
+      bottom: 0;
+      right: 30px;
+      margin: auto;
+      transition: $transition01;
+      transform: rotate(180deg);
+      filter: brightness(0) saturate(100%) invert(47%) sepia(73%) saturate(3629%) hue-rotate(149deg) brightness(98%) contrast(101%);
+    }
+  }
+
+  @include pc {
+    &:hover {
+      background-color: $primary_green;
+      color: #fff;
+
+      &::after {
+        filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(5991%) hue-rotate(180deg) brightness(120%) contrast(95%);
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@use '../../mixin/mixin'as *;
+@use '../../setting/setting'as *;
+
+.p-contact {
+  .name-and-email {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 24px;
+
+    @include sp {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+
+  .name,
+  .email,
+  .subject,
+  .message {
+    width: 100%;
+  }
+
+  .subject,
+  .message {
+    margin-top: 24px;
+
+    @include sp {
+      margin-top: 12px;
+    }
+  }
+
+  .message {
+    min-height: 153px;
+  }
+
+  .main-area {
+    display: flex;
+    gap: 80px;
+
+    @include sp {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  .form-items {
+    width: 100%;
+
+    @include pc {
+      max-width: 636px;
+    }
+  }
+
+  .info-items {
+    @include paragraph;
+    color: #777;
+
+    @include pc {
+      max-width: 394px;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      a {
+        display: block;
+        width: fit-content;
+      }
+    }
+
+    .sns-box {
+      margin-top: 32px;
+
+      .ttl {
+        font-weight: 500;
+        color: #222;
+      }
+
+      .c-sns-list {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .btn {
+    @include sp {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}

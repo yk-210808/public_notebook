@@ -1,0 +1,72 @@
+@use '../mixin/mixin' as *;
+@use '../setting/setting' as *;
+
+.c-ttl01 {
+  @include heading_h3;
+
+  .bg {
+    color: #fff;
+    background-color: $primary_green;
+    padding: 1px 3px;
+  }
+}
+
+.c-ttl02 {
+  @include heading_h1;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.c-ttl03 {
+  @include heading_h5;
+  color: #777;
+  padding-bottom: 11px;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+  }
+
+  &::before {
+    width: 194px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: $primary_green;
+    z-index: 2;
+  }
+
+  &::after {
+    width: 100%;
+    height: 1px;
+    background-color: #C4C4C4;
+    bottom: 1px;
+    z-index: 1;
+  }
+
+  .bold {
+    color: #222;
+  }
+}
+
+.c-ttl-area {
+  text-align: center;
+  margin-bottom: 56px;
+
+  @include sp {
+    margin-bottom: 40px;
+  }
+
+  .c-ttl01 {
+    @include heading_h1;
+  }
+
+  .ttl-description {
+    @include paragraph;
+    color: #666;
+    margin-top: 16px;
+  }
+}
