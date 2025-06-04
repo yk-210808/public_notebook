@@ -74,6 +74,8 @@ $blogs_terms = get_terms(array(
 
 <?php wp_footer(); ?>
 
+</div> <!-- /#wrapper -->
+
 </body>
 
 </html>

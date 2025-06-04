@@ -29,6 +29,7 @@ $blogs_terms = get_terms(array(
 
 <body <?php body_class(); ?>>
 
+<div id="wrapper">
   <header class="c-header">
     <div class="inner-block">
       <h1 class="header-logo">

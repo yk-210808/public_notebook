@@ -195,6 +195,11 @@ import {
     return false;
   });
 
+  // ページ読み込み時の表示崩れを防ぐ
+  $(function() {
+    $('#wrapper').fadeIn(0);
+  });
+
   // Splide
   $(function () {
     if ($('.splide-scroll-vertical')[0]) {
